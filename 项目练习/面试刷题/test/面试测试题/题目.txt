@@ -1,0 +1,21 @@
+1. 数据说明
+land_data  地块招拍挂数据
+字段
+city_id  城市代码
+city_name 城市名
+year  地块出让年份
+level 地块等级
+type 地块用途
+area 地块面积
+price 地块成交总价
+unit_price  地块成交单价 = price/area
+
+
+2. 题目
+用pandas处理
+
+1. 统计每个城市每年土地成交的平均的单位价格（unit_price）
+2. 统计每个城市每年土地成交的平均加权价格 （sum(price)/sum(area）)
+3. 在1的结果上补全每个城市缺失年份的数据，向前填充
+4. 将1中的平均单位价格标准化
+5. 按type统计unit_price的数值分布情况

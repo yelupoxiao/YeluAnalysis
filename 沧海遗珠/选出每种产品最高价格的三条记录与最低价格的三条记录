@@ -1,0 +1,53 @@
+CREATE TABLE IF NOT EXISTS nproducts ( 
+      id INTEGER PRIMARY KEY AUTO_INCREMENT, 
+		name text, 
+		weight integer, 
+		price integer DEFAULT 0 );
+	
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',165,15);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',211,21);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',214,24);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',311,31);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',161,11);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',318,38);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',216,26);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',213,23);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',317,37);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',163,13);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',168,18);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',310,30);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',215,25);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',319,39);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',169,19);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',162,12);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',312,32);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',167,17);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',315,35);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',160,10);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',166,16);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',313,33);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',314,34);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '苹果',164,14);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',217,27);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',218,28);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',210,20);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '葡萄',316,36);
+INSERT INTO nproducts ( name, weight, price ) VALUES ( '梨',212,22);
+
+
+-- 选出每种产品最高价格的三条记录与最低价格的三条记录
+WITH add_name_count AS (
+SELECT *, count(_id) as anc FROM nproducts
+GROUP BY name
+)
+
+With rnumber AS (
+SELECT *, row_number() over(partition by name ORDER BY price) as rn
+FROM nproducts
+ORDER BY name, price
+)
+
+SELECT * FROM rnumber
+GROUP BY name
+HAVING rn <= 3 or rn >=(select anc-3 from add_name_count)
+
