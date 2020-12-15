@@ -11,6 +11,18 @@ YeluAnalysis
 
 以[Python编程：从入门到实践](https://book.douban.com/subject/26829016/)、[Python基础教程（第3版)](https://book.douban.com/subject/27667375/)与[Python核心编程（第3版）](https://book.douban.com/subject/26801374/)作为学习教材，同时参考[Python-100-Days](https://github.com/jackfrued/Python-100-Days),记载了完整的学习过程。
 
+[1.搭建编程环境](编程学习/语言基础/1.搭建编程环境)
+
+[2.变量和数据类型](编程学习/语言基础/2.变量和数据类型)
+
+[3.构造程序逻辑](编程学习/语言基础/3.构造程序逻辑)
+
+[4.函数和模块](编程学习/语言基础/4.函数和模块)
+
+[5.面向对象编程](编程学习/语言基础/5.面向对象编程)
+
+
+
 
 * ## Python三方库 
 
@@ -84,9 +96,9 @@ Pyhton经典三方库的知识扫盲贴，主要资料来源微信公众号“�
 大数据基础知识的学习，包括创建虚拟机、安装Linux系统、搭建Hadoop集群及其相关生态体系知识的介绍。
 
 [1.创建虚拟机，熟悉linux](数据科学/大数据基础/1.创建虚拟机，熟悉linux.md)
-​	
+
 [2.搭建Hadoop集群.md](数据科学/大数据基础/2.搭建Hadoop集群.md)
-​	
+
 [3.关于HDFS](数据科学/大数据基础/3.关于HDFS.md)
 
 [4.关于MapReduce](数据科学/大数据基础/4.关于MapReduce.md)
